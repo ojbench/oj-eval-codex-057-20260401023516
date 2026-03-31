@@ -43,12 +43,14 @@ int main() {
             }
         } else if (cmd == 3) {
             string id; cin >> id;
-            int idx = id_to_index[id];
+            auto it = id_to_index.find(id);
+            int idx = (it == id_to_index.end()) ? -1 : it->second;
             const auto &s = students[idx];
             cout << s.id << ' ' << s.name << ' ' << s.score << '\n';
         } else if (cmd == 4) {
             string name; cin >> name;
-            int idx = name_to_index[name];
+            auto it = name_to_index.find(name);
+            int idx = (it == name_to_index.end()) ? -1 : it->second;
             const auto &s = students[idx];
             cout << s.id << ' ' << s.name << ' ' << s.score << '\n';
         } else if (cmd == 5) {
@@ -91,4 +93,3 @@ int main() {
 
     return 0;
 }
-
